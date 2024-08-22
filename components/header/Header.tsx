@@ -77,54 +77,53 @@ const Header = () => {
             {/* Column 1 */}
             <div>
               <ul>
-                <li className='text-gray-500 font-normal text-sm relative'>NEW COLLECTION</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-3'>NEW COLLECTION</li>
               </ul>
             </div>
 
             {/* Column 2 */}
             <div>
-              <ul>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+              <ul className='mb-2'>
+                <li className='text-gray-500 font-normal text-sm relative mb-3'>ABRIGOS</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>Sweaters</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>Jackets </li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>Hoodies</li>
               </ul>
             </div>
 
             {/* Column 3 */}
             <div>
               <ul>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-3'>REMERAS</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>Boxy</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>Oversize</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>Heavyweight</li>
               </ul>
             </div>
 
             {/* Column 4 */}
             <div>
               <ul>
-                <li className='text-gray-500 font-normal text-sm relative'>>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-3'>PANTS</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>SHORTS</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>SALE</li>
               </ul>
             </div>
 
             {/* Column 5 */}
             <div>
               <ul>
-                <li className='text-gray-500 font-normal text-sm relative'>>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-3'>ACCESORIOS</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>Beanies</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>&nbsp;</li>
+                <li className='text-gray-500 font-normal text-sm relative mb-1'>VER TODO</li>
+
               </ul>
             </div>
-
             {/* Column 6 */}
             <div>
               <ul>
-                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>GIFT CARDS</li>
               </ul>
             </div>
 
