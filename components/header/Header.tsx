@@ -1,7 +1,13 @@
+'use client'
 import Link from 'next/link';
 import MovingBar from "@/components/header/MovingBar";
+import logo from '/home/vare/project/frelo/silence_com/clients/ecom/public/logo.webp'
+import Image from 'next/image';
+import { useState } from 'react';
 
 const Header = () => {
+  const [isProductosHovered, setIsProductosHovered] = useState(false);
+
   return (
     <div>
         {/* Black Bar: moving bar */}
@@ -18,8 +24,15 @@ const Header = () => {
           </div>
 
           {/* Center: Logo */}
-          <div className="flex-grow text-center">
-            <a href="/" className="text-xl text-black font-bold">MyLogo</a>
+          <div className="flex-grow flex justify-center ml-24">
+          <Link href="/" className="text-xl text-black font-bold">
+              <Image 
+                alt='logo'
+                src={logo}
+                width={150}
+                height={100}
+              />
+            </Link>
           </div>
 
           {/* Right: Login and Cart Buttons */}
@@ -41,12 +54,81 @@ const Header = () => {
 
         </header>
 
-        {/* Categorias: sliding menu */}
-        <div className="flex justify-center space-x-8 py-4 bg-gray-100">
-          <Link href="#inicio" className='text-gray-500 font-normal text-base'>INICIO</Link>
-          <Link href="#inicio" className='text-gray-500 font-normal text-base'>NEW COLLECTION</Link>
-          <Link href="#inicio" className='text-gray-500 font-normal text-base'>PRODUCTOS</Link>
-          <Link href="#inicio" className='text-gray-500 font-normal text-base'>SALE</Link>
+        {/* Categorias: hay eventos */}
+        <div className="flex justify-center space-x-8 pt-2 py-6 bg-white">
+          <Link href="#inicio" className='text-gray-500 font-normal text-sm'>INICIO</Link>
+          <Link href="#inicio" className='text-gray-500 font-normal text-sm'>NEW COLLECTION</Link>
+            <Link
+              onMouseEnter={() => setIsProductosHovered(true)}
+              onMouseLeave={() => setIsProductosHovered(false)}
+              href="#inicio" 
+              className='text-gray-500 font-normal text-sm relative'>
+                PRODUCTOS
+            </Link>
+
+          <Link href="#inicio" className='text-gray-500 font-normal text-sm'>SALE</Link>
+        </div>
+
+        {/* Sliding menu:  */}
+        <div
+          className={`absolute left-0 w-full bg-white shadow-lg border-t-2 border-gray-200 transition-opacity duration-500 
+          ${isProductosHovered ? 'opacity-100' : 'opacity-0 pointer-events-none' }`}>
+          <div className="grid grid-cols-6 gap-4 p-4">
+            {/* Column 1 */}
+            <div>
+              <ul>
+                <li className='text-gray-500 font-normal text-sm relative'>NEW COLLECTION</li>
+              </ul>
+            </div>
+
+            {/* Column 2 */}
+            <div>
+              <ul>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+              </ul>
+            </div>
+
+            {/* Column 3 */}
+            <div>
+              <ul>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+              </ul>
+            </div>
+
+            {/* Column 4 */}
+            <div>
+              <ul>
+                <li className='text-gray-500 font-normal text-sm relative'>>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>>Product 1</li>
+              </ul>
+            </div>
+
+            {/* Column 5 */}
+            <div>
+              <ul>
+                <li className='text-gray-500 font-normal text-sm relative'>>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+              </ul>
+            </div>
+
+            {/* Column 6 */}
+            <div>
+              <ul>
+                <li className='text-gray-500 font-normal text-sm relative'>Product 1</li>
+              </ul>
+            </div>
+
+          </div>
         </div>
     </div>
   );
