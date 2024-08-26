@@ -9,7 +9,7 @@ const Header = () => {
   const [isProductosHovered, setIsProductosHovered] = useState(false);
 
   return (
-    <div>
+    <div className='fixed md:absolute top-0 left-0 w-full z-50  '>
         {/* Black Bar: moving bar */}
         <MovingBar/>
 
@@ -31,7 +31,7 @@ const Header = () => {
           </div>
 
           {/* Center: Logo */}
-          <div className="flex-grow flex justify-center ml-10 md:ml-20">
+          <div className="flex-grow flex justify-center ml-10 md:ml-[105px]">
             <Link href="/" className="text-xl text-black font-bold">
               <Image 
                 alt='logo'
@@ -62,15 +62,15 @@ const Header = () => {
         </header>
 
         {/* Categorias: hay eventos */}
-        <div className="hidden md:flex justify-center space-x-8 pt-2 py-6 bg-white">
+        <div className="hidden md:flex justify-center items-center space-x-8 pt-2 py-6 bg-white">
 
           <Link href="#inicio" className='text-gray-500 font-normal text-sm'>INICIO</Link>
           <Link href="#inicio" className='text-gray-500 font-normal text-sm'>NEW COLLECTION</Link>
-          <div               
+          <div
             onMouseEnter={() => setIsProductosHovered(true)}
             onMouseLeave={() => setIsProductosHovered(false)}>
 
-            <Link href="#inicio" className='text-gray-500 font-normal text-sm relative'>
+            <Link href="#inicio" className='text-gray-500 font-normal text-sm mt-[-1px]'>
               PRODUCTOS
             </Link>
 
@@ -78,7 +78,7 @@ const Header = () => {
             <div
               className={`absolute left-0 w-full bg-white shadow-lg transition-opacity duration-500 
               ${isProductosHovered ? 'opacity-100 z-50': 'opacity-0 pointer-events-none' }`}>
-              <div className="grid grid-cols-6 gap-4 p-10 mt-6">
+              <div className="grid grid-cols-6 p-8">
                 {/* Column 1 */}
                 <div>
                   <ul>
@@ -136,6 +136,7 @@ const Header = () => {
 
           </div>
           <Link href="#inicio" className='text-gray-500 font-normal text-sm'>SALE</Link>
+          
         </div>
 
     </div>

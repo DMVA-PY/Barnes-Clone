@@ -4,7 +4,7 @@ import ImageSlider from '../reusable/ImageSlider'
 
 const Main = () => {
   return (
-    <div className=''>
+    <div className='mt-28 md:mt-44 '>
       <ImageSlider/>
     </div>
   )

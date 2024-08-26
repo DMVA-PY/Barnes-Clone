@@ -8,11 +8,20 @@ const images = {
 };
 
 const ImageSlider = () => {
-
+  const [visible, setVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageSize, setImageSize] = useState('small');
-  
-  /* resize sm and md */
+
+  /* appears after 2 seconds */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, 100); // Start the transition after a brief delay (e.g., 100ms)
+
+    return () => clearTimeout(timer); // Clean up the timeout if the component unmounts
+  }, []);
+
+  /* resize sm and md */  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -61,34 +70,38 @@ const ImageSlider = () => {
   const imageArray = images[imageSize];
 
   return (
-    <div className="relative h-screen w-full bg-yellow-400">
-      <Image
-        src={imageArray[currentIndex]}
-        alt="Slider Image"
-        width={10000}
-        height={1000}
-        objectFit="cover"
-        className="transition-all duration-500 ease-in-out"
-      />
+    <div className={`relative w-full transition-opacity duration-2000 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+      <div>
+        <Image
+          src={imageArray[currentIndex]}
+          alt="Slider Image"
+          width={10000}
+          height={100}
+          objectFit="cover"
+          className="transition-all duration-500 ease-in-out"
+          onLoad={(e) => e.currentTarget.style.opacity = '1'} // Fade in the image when it's ready
+        />
+    </div>
 
-      <div className="absolute top-4 right-4 flex space-x-4">
+    {/* buttons */}
+        <div className="absolute top-4 right-4 flex space-x-4">
 
-        <button
-          className="w-8 h-8  text-white flex items-center justify-center  transition"
-          onClick={handlePrev}
-        >
-          &#8249;
-        </button>
+          <button
+            className="w-8 h-8  text-white text-4xl flex items-center justify-center  transition"
+            onClick={handlePrev}
+          >
+            &#8249;
+          </button>
 
-        <button
-          className="w-8 h-8 text-white flex items-center justify-center transition"
-          onClick={handleNext}
-        >
-          &#8250;
-        </button>
+          <button
+            className="w-8 h-8 text-white text-4xl flex items-center justify-center transition"
+            onClick={handleNext}
+          >
+            &#8250;
+          </button>
 
-      </div>
-      
+        </div>
+        
     </div>
   );
 };
