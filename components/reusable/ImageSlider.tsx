@@ -11,15 +11,8 @@ const ImageSlider = () => {
   const [visible, setVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageSize, setImageSize] = useState<'small' | 'medium'>('small');
+  const [imageLoaded, setImageLoaded] = useState(false);
 
-  /* appears after 2 seconds */
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(true);
-    }, 100); // Start the transition after a brief delay (e.g., 100ms)
-
-    return () => clearTimeout(timer); // Clean up the timeout if the component unmounts
-  }, []);
 
   /* resize sm and md */  
   useEffect(() => {
@@ -72,20 +65,24 @@ const ImageSlider = () => {
   const imageArray = images[imageSize];
 
   return (
-    <div className={`relative w-full transition-opacity duration-2000 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-      <div>
-        <Image
-          src={imageArray[currentIndex]}
-          alt="Slider Image"
-          width={10000}
-          height={100}
-          objectFit="cover"
-          className="transition-all duration-500 ease-in-out"
-          onLoad={(e) => e.currentTarget.style.opacity = '1'} // Fade in the image when it's ready
-        />
-    </div>
+    <div className="relative w-full h-full">
 
-    {/* buttons */}
+      <div className={`relative w-full transition-opacity duration-2000 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+             {/* Overlay to hide content before image loads */}
+
+        <div>
+          <Image
+            src={imageArray[currentIndex]}
+            alt="Slider Image"
+            width={10000}
+            height={100}
+            objectFit="cover"
+            className="transition-all duration-500 ease-in-out"
+            onLoad={() => setVisible(true)} // Make the component visible when the image is fully loaded
+          />
+        </div>
+
+        {/* buttons */}
         <div className="absolute top-4 right-4 flex space-x-4">
 
           <button
@@ -103,7 +100,9 @@ const ImageSlider = () => {
           </button>
 
         </div>
-        
+          
+      </div>
+
     </div>
   );
 };

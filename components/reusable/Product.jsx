@@ -6,7 +6,7 @@ const Product = () => {
   const [hover, setHover] = useState(false);
 
   return (
-    <div className="max-w-md mt-4">
+    <div className="max-w-full mt-4 ">
 
         {/* Product */}
         <div 
@@ -20,12 +20,13 @@ const Product = () => {
             </div>
 
             {/* Product Image */}
-            <div className="w-full h-[470px] overflow-hidden relative">
+            <div className="w-full h-[500px] overflow-hidden relative">
             <Image
                 src={hover ? "/green_hoodie.webp" : "/green_hoodie2.webp"}
                 alt="Hoodie Automobile Club Vintage Blue"
                 layout="fill"
                 objectFit="cover"
+                objectPosition="center" // Centers the image within the container
                 className={`transform transition-transform duration-500 ease-in-out ${hover ? 'scale-110' : 'scale-100'}`}
             />
             </div>
