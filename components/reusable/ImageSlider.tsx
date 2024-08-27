@@ -10,7 +10,7 @@ const images = {
 const ImageSlider = () => {
   const [visible, setVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [imageSize, setImageSize] = useState('small');
+  const [imageSize, setImageSize] = useState<'small' | 'medium'>('small');
 
   /* appears after 2 seconds */
   useEffect(() => {
@@ -30,13 +30,15 @@ const ImageSlider = () => {
         setImageSize('small');
       }
     };
+    
+    if (typeof window !== 'undefined') {
+      handleResize(); // Set initial image size
+      window.addEventListener('resize', handleResize);
 
-    handleResize(); // Set initial image size
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
   }, []);
 
   /* 5s to slide image */
