@@ -17,16 +17,15 @@ const HeroSecond = () => {
             width={10000}
             height={20}
           />
-          {/* Text at the bottom of the first image */}
-          <div className="absolute bottom-10 left-0 w-full text-left ml-4">
-            <h1 className="text-white text-7xl font-medium">Hoodies</h1>
-            <div className="text-left  mt-2">
-              <a href="/your-link" className="text-white text-lg underline">
-                New drop
-              </a>
+            {/* Text at the bottom of the first image */}
+            <div className="absolute bottom-10 left-0 w-full text-left ml-4">
+              <h1 className="text-white font-normal text-7xl lg:text-9xl ">Hoodies</h1>
+              <div className="text-left mt-2 lg:ml-2">
+                <a href="/your-link" className="text-white text-md  underline">
+                  New drop 
+                </a>
+              </div>
             </div>
-          </div>
-
         </div>
 
         {/* Image 2 */}
@@ -39,11 +38,11 @@ const HeroSecond = () => {
               height={20}
             />
             {/* Text at the bottom of the first image */}
-            <div className="absolute bottom-10 left-0 w-full text-left ml-4 z-10">
-              <h1 className="text-white text-7xl font-medium">Hoodies</h1>
-              <div className="text-left mt-2">
-                <a href="/your-link" className="text-white text-lg underline">
-                  New drop
+            <div className="absolute bottom-10 left-0 w-full text-left ml-4">
+              <h1 className="text-white font-normal text-7xl lg:text-9xl ">Hoodies</h1>
+              <div className="text-left mt-2 lg:ml-2">
+                <a href="/your-link" className="text-white text-md  underline">
+                  New drop 
                 </a>
               </div>
             </div>

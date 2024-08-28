@@ -20,15 +20,17 @@ const Product = () => {
             </div>
 
             {/* Product Image */}
-            <div className="w-full h-[500px] overflow-hidden relative">
-            <Image
-                src={hover ? "/green_hoodie.webp" : "/green_hoodie2.webp"}
-                alt="Hoodie Automobile Club Vintage Blue"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center" // Centers the image within the container
-                className={`transform transition-transform duration-500 ease-in-out ${hover ? 'scale-110' : 'scale-100'}`}
-            />
+            <div className="w-full max-h-full  h-[500px] sm:h-[900px] md:h-[300px] lg:h-[500px] overflow-hidden relative">
+{/*             <div className="w-full h-[500px] overflow-hidden relative">
+ */}
+                <Image
+                    src={hover ? "/green_hoodie.webp" : "/green_hoodie2.webp"}
+                    alt="Hoodie Automobile Club Vintage Blue"
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center" // Centers the image within the container
+                    className={`transform transition-transform duration-500 ease-in-out ${hover ? 'scale-110' : 'scale-100'}`}
+                />
             </div>
         </div>
         

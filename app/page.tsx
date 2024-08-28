@@ -3,6 +3,7 @@ import Main from "@/components/main/Main";
 import HeroSecond from "@/components/nonreusable/HeroSecond";
 import HeroThird from "@/components/nonreusable/HeroThird";
 import { useEffect, useState } from "react";
+import {CartProvider} from '/home/vare/project/frelo/silence_com/clients/ecom/context/CartProvider.jsx'
 
 export default function Home() {
   const [loading, setLoading] = useState(true);

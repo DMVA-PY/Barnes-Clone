@@ -12,12 +12,15 @@ const HeroThird = () => {
       </div>
 
       {/* Grid Items */}
-      <div className="col-span-1 md:col-span-3 grid md:grid-cols-3 lg:grid-cols-3 gap-4">
-        {/* mt-[-290px] sm:mt-[-260px] md:mt-[0px] */}
+      <div className="col-span-1 md:col-span-3 grid md:grid-cols-3 lg:grid-cols-3 gap-4"> 
+
         {/* Product 1 - Always visible */}
         <Product />
 
         {/* Additional Products - Hidden on small screens */}
+        <div className="hidden md:block">
+          <Product />
+        </div>
         <div className="hidden md:block">
           <Product />
         </div>
