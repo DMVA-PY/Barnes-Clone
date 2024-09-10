@@ -1,30 +1,33 @@
-'use client'
+"use client";
 import Main from "@/components/main/Main";
 import HeroSecond from "@/components/nonreusable/HeroSecond";
 import HeroThird from "@/components/nonreusable/HeroThird";
 import { useEffect, useState } from "react";
-import {CartProvider} from '/home/vare/project/frelo/silence_com/clients/ecom/context/CartProvider.jsx'
+import { CartProvider } from "/home/vare/project/frelo/silence_com/clients/ecom/context/CartProvider.jsx";
+import Image from "next/image";
+import styles from '../styles/main.module.css'; // Import CSS module if you have styles
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Simulate content loading or handle real loading (e.g., image loading)
+  // Simulate loading time
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, 300); // Adjust the delay as needed
+      setIsLoaded(true);
+    }, 1000); // Adjust the time as needed
 
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return null; // Render nothing while loading
-  }
   return (
-    <main className={`transition-opacity duration-1500 ease-in-out ${loading ? 'opacity-0' : 'opacity-100'}`}>
-        <Main/>
-        <HeroSecond/>
-        <HeroThird/>
+    <main className={styles.mainContainer}>
+      <div className={`${styles.contentWrapper} ${isLoaded ? styles.fadeIn : styles.hidden}`}>
+          <div>
+            <Main />
+            <HeroSecond />
+            <HeroThird />
+          </div>
+      </div>
     </main>
-  ); 
+  );
 }

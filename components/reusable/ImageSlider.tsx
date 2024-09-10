@@ -13,7 +13,6 @@ const ImageSlider = () => {
   const [imageSize, setImageSize] = useState<'small' | 'medium'>('small');
   const [imageLoaded, setImageLoaded] = useState(false);
 
-
   /* resize sm and md */  
   useEffect(() => {
     const handleResize = () => {
@@ -68,8 +67,8 @@ const ImageSlider = () => {
     <div className="relative w-full h-full">
 
       <div className={`relative w-full transition-opacity duration-2000 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-             {/* Overlay to hide content before image loads */}
 
+        {/* Overlay to hide content before image loads */}
         <div>
           <Image
             src={imageArray[currentIndex]}
