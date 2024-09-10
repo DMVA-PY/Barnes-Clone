@@ -1,6 +1,7 @@
+'use client'
 import { useCart } from '@/context/CartProvider';
 import Image from 'next/image';
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const SmartCart = () => {
     const { isCarritoOpen, toggleCarrito, isMounted } = useCart();
@@ -8,6 +9,13 @@ const SmartCart = () => {
     if (!isMounted) {
       return null; // Don't render the cart until the component is mounted
     }
+    useEffect(() => {
+      if (isCarritoOpen) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+    })
     return (
       <div>
           {/* Sliding cart */}
